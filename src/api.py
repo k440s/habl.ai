@@ -3,7 +3,7 @@ API REST para el sistema de Localización con IA
 Servidor FastAPI con endpoints para traducción y TTS
 """
 from fastapi import FastAPI, HTTPException, status, UploadFile, File, Depends, Request
-from file_processor import FileProcessor
+from .file_processor import FileProcessor
 
 from fastapi.responses import FileResponse, JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
@@ -16,7 +16,6 @@ import logging
 from datetime import datetime
 
 from hablai_core import LocalizationAI
-from file_processor import FileProcessor
 from auth import AuthService, get_current_active_user 
 
 from models import (
