@@ -1,4 +1,4 @@
-from hablai_core import LocalizationAI 
+from src.hablai_core import LocalizationAI 
 
 def main():
     print("🚀 Iniciando sistema de localización...\n")
