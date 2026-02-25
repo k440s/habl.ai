@@ -10,13 +10,23 @@ from typing import Optional, Dict
 import os
 from dotenv import load_dotenv
 
-load_dotenv()
+# Load .env file
+load_dotenv(dotenv_path=os.path.join(os.path.dirname(__file__), "..", ".env"))
 
-# Supabase client
-supabase: Client = create_client(
-    os.getenv("SUPABASE_URL"),
-    os.getenv("SUPABASE_KEY")
-)
+# Get environment variables
+SUPABASE_URL = os.getenv("SUPABASE_URL")
+SUPABASE_KEY = os.getenv("SUPABASE_KEY")
+
+# Validate environment variables
+if not SUPABASE_URL:
+    raise RuntimeError("SUPABASE_URL is not set")
+
+if not SUPABASE_KEY:
+    raise RuntimeError("SUPABASE_KEY is not set")
+
+
+supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
+
 
 # Security
 security = HTTPBearer()
