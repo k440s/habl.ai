@@ -1,0 +1,19 @@
+ Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Environments
+.venv/
+venv/
+env/
+
+# OS
+.DS_Store
+
+# Secrets
+.env
+
+# Outputs
+output_audio/
